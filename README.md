@@ -1,0 +1,1 @@
+# plugins-imagerecycle-pdf-image-compression
