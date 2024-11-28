@@ -5,7 +5,7 @@ Plugin URI: https://www.imagerecycle.com/cms/wordpress
 Description: ImageRecycle is an automatic image & PDF optimizer that save up to 80% of the media weight without loosing quality. Speed up your website, keep visitors on board!
 Author: ImageRecycle
 Text Domain: wpio
-Version: 3.1.16
+Version: 3.1.17
 Author URI: https://www.imagerecycle.com
 Licence : GNU General Public License version 2 or later; http://www.gnu.org/licenses/gpl-2.0.html
 Copyright : Copyright (C) 2014 Imagerecycle (https://www.imagerecycle.com). All rights reserved.
@@ -23,7 +23,7 @@ if (!defined('WPIO_IMAGERECYCLE_URL')) {
 }
 
 if (!defined('WPIO_IMAGERECYCLE_VERSION')) {
-    define('WPIO_IMAGERECYCLE_VERSION', '3.1.16');
+    define('WPIO_IMAGERECYCLE_VERSION', '3.1.17');
 }
 
 require_once(WPIO_IMAGERECYCLE . 'class/class-image-otimizer.php');

@@ -78,6 +78,19 @@ class WPIOTable extends WP_List_Table
         $current_page = $this->get_pagenum();
         $total_items = $this->totalItems;
         $per_page = 30;
+
+        // If no sort, default to title
+        $orderby =  !empty($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'filename';
+        $validOrderBy = array('size', 'optimized',  'filename');
+        if (!in_array($orderby, $validOrderBy)) {
+            $orderby = 'filename';
+        }
+        // If no order, default to asc
+        $orderdir = !empty($_REQUEST['order']) ? $_REQUEST['order'] : 'asc';
+        $validOrder = array('asc', 'ASC',  'desc','DESC');
+        if (!in_array($orderdir, $validOrder)) {
+            $orderdir = 'asc';
+        }
         $this->set_pagination_args(array(
             'total_items' => $this->totalItems,                  //WE have to calculate the total number of items
             'per_page' => $per_page,                     //WE have to determine how many items to show on a page
@@ -85,8 +98,8 @@ class WPIOTable extends WP_List_Table
             //WE have to calculate the total number of pages
             'total_pages' => ceil($total_items / $per_page),
             // Set ordering values if needed (useful for AJAX)
-            'orderby' => !empty($_REQUEST['orderby']) && '' != $_REQUEST['orderby'] ? $_REQUEST['orderby'] : 'filename',
-            'order' => !empty($_REQUEST['order']) && '' != $_REQUEST['order'] ? $_REQUEST['order'] : 'asc'
+            'orderby' =>  $orderby,
+            'order' =>$orderdir
         ));
         $this->_column_headers = array($this->get_columns(), $hidden, $sortable);
     }
