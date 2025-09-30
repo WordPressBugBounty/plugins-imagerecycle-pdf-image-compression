@@ -84,29 +84,32 @@ class Irfeedback
         self::$plugin_slug = $plugin_slug;
         self::$plugin_name = $plugin_name;
         self::$text_domain = $text_domain;
-        //phpcs:disable WordPress.WP.I18n.NonSingularStringLiteralDomain -- Already use text domain for extensions
-        self::$list_comments = array(
-            self::$plugin_prefix . '_feature_missing' => array(
-                'explain' => __('There\'s a feature missing', self::$text_domain),
-                'placeholder' => __('Let us know what\'s missing', self::$text_domain),
-            ),
-            self::$plugin_prefix . '_not_working' => array(
-                'explain' => __('The plugin is not working great', self::$text_domain),
-                'placeholder' => __('Please let us know what\'s the problem', self::$text_domain),
-            ),
-            self::$plugin_prefix . '_found_better_plugin' => array(
-                'explain' => __('I found a better plugin', self::$text_domain),
-                'placeholder' => __('Oh, which one is it?', self::$text_domain),
-            ),
-            self::$plugin_prefix . '_something_else' => array(
-                'explain' => __('I was searching for something else', self::$text_domain),
-                'placeholder' => __('Can you let us know what\'s you\'re searching for?', self::$text_domain),
-            ),
-            self::$plugin_prefix . '_other' => array(
-                'explain' => __('Other, We\'d like to hear your opinion :)', self::$text_domain),
-                'placeholder' => __('Write what\'s in your mind', self::$text_domain))
-        );
-        //phpcs:enable
+
+        add_action('admin_init', function () {
+            //phpcs:disable WordPress.WP.I18n.NonSingularStringLiteralDomain -- Already use text domain for extensions
+            self::$list_comments = array(
+                self::$plugin_prefix . '_feature_missing' => array(
+                    'explain' => __('There\'s a feature missing', self::$text_domain),
+                    'placeholder' => __('Let us know what\'s missing', self::$text_domain),
+                ),
+                self::$plugin_prefix . '_not_working' => array(
+                    'explain' => __('The plugin is not working great', self::$text_domain),
+                    'placeholder' => __('Please let us know what\'s the problem', self::$text_domain),
+                ),
+                self::$plugin_prefix . '_found_better_plugin' => array(
+                    'explain' => __('I found a better plugin', self::$text_domain),
+                    'placeholder' => __('Oh, which one is it?', self::$text_domain),
+                ),
+                self::$plugin_prefix . '_something_else' => array(
+                    'explain' => __('I was searching for something else', self::$text_domain),
+                    'placeholder' => __('Can you let us know what\'s you\'re searching for?', self::$text_domain),
+                ),
+                self::$plugin_prefix . '_other' => array(
+                    'explain' => __('Other, We\'d like to hear your opinion :)', self::$text_domain),
+                    'placeholder' => __('Write what\'s in your mind', self::$text_domain))
+            );
+            //phpcs:enable
+        });
 
         // Check if the current screen
         add_action('current_screen', array(__CLASS__, 'screenFeedback'));

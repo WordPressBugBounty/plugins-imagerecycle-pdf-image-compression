@@ -2,8 +2,8 @@
 Contributors: ImageRecycle
 Tags: image compression, image optimization, image compress, image resizer, image resizer, image reduce, image compressor, image compression, media, image, pdf, optimize, compression, compress, resize, reduce, lossless, lossy, optimization, photo, picture, seo, image recycle
 Requires at least: 3.5.1
-Tested up to: 6.7
-Stable tag: 3.1.17
+Tested up to: 6.8.2
+Stable tag: 3.1.18
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -137,6 +137,9 @@ Sure, and it's even recommended to use one to speed up even more your WordPress 
 1. Select folder to include/exclude from optimization process
 
 == Changelog ==
+
+= 3.1.18 =
+ * Fix : PHP warning: _load_textdomain_just_in_time
 
 = 3.1.17 =
  * Fix : Security: XSS vulnerability issue
