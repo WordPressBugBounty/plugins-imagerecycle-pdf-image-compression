@@ -259,7 +259,7 @@ class wpImageRecycle
         add_option('wpio_do_activation_redirect', true);
     }
     
-    public function uninstall()
+    public static function uninstall()
     {
         wp_clear_scheduled_hook('wpio_auto_optimize_hourly');
     }
